@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Border Animation</title>
+  </head>
+
+  <body>
+    <div class="box">
+      <span></span>
+      <h2>69</h2>
+    </div>
+    <div class="box">
+      <span></span>
+      <h2>5</h2>
+    </div>
+    <div class="box">
+      <span></span>
+      <h2>3</h2>
+    </div>
+  </body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0c1022;
+    }
+
+    .box {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 2%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.75);
+      overflow: hidden;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+    }
+
+    .box::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #ff006f
+      );
+      animation: animate 4s linear infinite;
+      animation-delay: -2s;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #00ff99
+      );
+      animation: animate 4s linear infinite;
+    }
+
+    .box:nth-child(2)::after {
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #00ffee
+      );
+    }
+    .box:nth-child(2)::before {
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #00ff22
+      );
+    }
+
+    .box:nth-child(3)::after {
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #ff0026
+      );
+    }
+    .box:nth-child(3)::before {
+      background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #fbff00
+      );
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+      }
+    }
+
+    .box span {
+      position: absolute;
+      z-index: 1;
+      inset: 5px;
+      background: #0c1022;
+      border-radius: 16px;
+      -webkit-border-radius: 16px;
+      -moz-border-radius: 16px;
+      -ms-border-radius: 16px;
+      -o-border-radius: 16px;
+    }
+
+    .box h2 {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 10em;
+      font-weight: lighter;
+    }
+  </style>
+</html>
